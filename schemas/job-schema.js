@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;
 
 var Job = null;
@@ -14,7 +15,8 @@ module.exports = function(collectionName, payloadRefType)
 			blockedUntil: {
 				type: Date,
 				default: Date.now(),
-				required: false
+				required: false,
+				index: true
 			},
 			// hostname of the worker currently blocking/processing the job
 			workerHostname: {
@@ -30,7 +32,8 @@ module.exports = function(collectionName, payloadRefType)
 			retries: {
 				type: Number,
 				default: 0,
-				required: true
+				required: true,
+				index: true
 			},
 			// Payload is a reference to another mongoose object 
 			payload: {
@@ -41,7 +44,14 @@ module.exports = function(collectionName, payloadRefType)
 			done: {
 				type: Boolean,
 				default: false,
-				required: true
+				required: true,
+				index: true
+			},
+			doneNum: {
+				type: Number,
+				default: 0,
+				required: true,
+				index: true
 			},
 			// last error that occured while processing
 			error: {
@@ -51,6 +61,8 @@ module.exports = function(collectionName, payloadRefType)
 		}, {
 			timestamps: true
 		});
+
+		Job.index({ done: -1, blockedUntil: 1, retries: 1 });
 	}
 
 	return mongoose.model(collectionName, Job);

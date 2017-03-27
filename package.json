@@ -1,7 +1,7 @@
 {
-  "name": "mongoose-queue",
+  "name": "mongoose-queue-fast",
   "version": "0.3.1",
-  "description": "A simple queue using mongoose.",
+  "description": "A fork of mongoose-queue, a simple queue using mongoose.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec --recursive",
@@ -12,16 +12,16 @@
     "mongodb",
     "queue"
   ],
-  "author": "Christian Kuhn <c.kuhn@qn-solutions.de> (http://www.qn-solutions.de)",
+  "author": "Nicolás Andrade <nico@nmac.com.ar> (www.nmac.com.ar) ; based on the code from Christian Kuhn <c.kuhn@qn-solutions.de> (http://www.qn-solutions.de)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QN-Solutions/MongooseQueue.git"
+    "url": "https://github.com/nicoandra/MongooseQueue.git"
   },
   "bugs": {
-    "url": "https://github.com/QN-Solutions/MongooseQueue/issues"
+    "url": "https://github.com/nicoandra/MongooseQueue/issues"
   },
-  "homepage": "https://github.com/QN-Solutions/MongooseQueue",
+  "homepage": "https://github.com/nicoandra/MongooseQueue",
   "dependencies": {
     "mongoose": "^4.5.8",
     "underscore": "^1.8.3"
