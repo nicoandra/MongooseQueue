@@ -32,8 +32,7 @@ module.exports = function(collectionName, payloadRefType)
 			retries: {
 				type: Number,
 				default: 0,
-				required: true,
-				index: true
+				required: true
 			},
 			// Payload is a reference to another mongoose object 
 			payload: {
@@ -44,14 +43,12 @@ module.exports = function(collectionName, payloadRefType)
 			done: {
 				type: Boolean,
 				default: false,
-				required: true,
-				index: true
+				required: true
 			},
 			doneNum: {
 				type: Number,
 				default: 0,
-				required: true,
-				index: true
+				required: true
 			},
 			// last error that occured while processing
 			error: {
@@ -61,8 +58,6 @@ module.exports = function(collectionName, payloadRefType)
 		}, {
 			timestamps: true
 		});
-
-		Job.index({ done: -1, blockedUntil: 1, retries: 1 });
 	}
 
 	return mongoose.model(collectionName, Job);
