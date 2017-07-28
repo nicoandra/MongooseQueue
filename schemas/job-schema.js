@@ -51,11 +51,9 @@ module.exports = function(collectionName, payloadRefType)
 				type: String,
 				required: false
 			}
-		}, {
-			timestamps: true
 		});
 
-        Job.index({"createdAt": 1});
+
 
 	}
 
