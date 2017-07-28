@@ -43,12 +43,8 @@ module.exports = function(collectionName, payloadRefType)
 			done: {
 				type: Boolean,
 				default: false,
-				required: true
-			},
-			doneNum: {
-				type: Number,
-				default: 0,
-				required: true
+				required: true,
+				index: true
 			},
 			// last error that occured while processing
 			error: {
@@ -58,6 +54,9 @@ module.exports = function(collectionName, payloadRefType)
 		}, {
 			timestamps: true
 		});
+
+        Job.index({"createdAt": 1});
+
 	}
 
 	return mongoose.model(collectionName, Job);
