@@ -32,7 +32,8 @@ module.exports = function(collectionName, payloadRefType)
 			retries: {
 				type: Number,
 				default: 0,
-				required: true
+				required: true,
+                index: true
 			},
 			// Payload is a reference to another mongoose object 
 			payload: {
